@@ -18,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('./bg/mountain.jpg');
+    background: url('./assets/bg/mountain.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
