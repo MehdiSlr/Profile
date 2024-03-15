@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --text-clr: #e0e8ef;
+    --error-clr: #b02546;
+    --success-clr: #2ecc71;
+    --btn-clr: #822646;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../profile/bg/mountain.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+section {
+    background: rgba(200, 200, 224, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5px;
+    overflow: hidden;
+    width: min(420px, 95%);
+}
+
+h1 {
+    font-size: 1.6rem;
+    color: var(--text-clr);
+    text-align: center;
+    padding: 20px 40px 0;
+}
+
+/* FORM */
+
+form {
+padding: 30px 40px;
+}
+
+label {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-clr);
+    margin-bottom: 8px;
+
+}
+
+label.register {
+    margin-top: 8px;
+}
+
+a:visited {
+    color: #8191a7;
+}
+a:link {
+    text-decoration: underline;
+    color: #8191a7;
+    font-weight: 700;
+}
+a:hover {
+    text-decoration: none;
+    color: var(--btn-clr);
+}
+
+input {
+    width: 100%;
+    background: transparent;
+    color: #e0e8efb8;
+    font-size: 0.8rem;
+    font-weight: 500;
+    outline: 2px solid #a2b7d3;
+    border-radius: 4px;
+    border: 0;
+    padding: 10px;
+    margin-bottom: 5px;
+    transition: all 0.1s;
+}
+input::placeholder {
+    color: #a2b7d3;
+}
+
+input:focus{
+    outline: 3px dotted var(--text-clr);
+}
+
+input:focus + i {
+    transition: all 0.1s;
+    font-size: 1.05rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--text-clr);
+}
+
+.input-control {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-control i {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+    color: #e0e8efb8;
+}
+
+.btn {
+    width: 100%;
+    background: #822646;
+    color: var(--text-clr);
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s linear;
+}
+
+.btn:hover {
+    /* background:  #892445; */
+    /* text-shadow: 0 0 1px #ffffff, 0 0 3px #ffffff, 0 0 5px #ffffff; */
+    box-shadow: 0 0 1px #ad335e, 0 0 5px #ad335e, 0 0 10px #ad335e,
+    0 0 20px #ad335e;
+}
