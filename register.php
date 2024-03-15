@@ -11,7 +11,7 @@
     session_start();
     include "./conf/serv_conf.php";
 
-    if(isset($_SESSION['login']))
+    if(isset($_SESSION['login'])) // check if user is already logged in
     {
         header('location: profile.php');
     }
@@ -19,7 +19,6 @@
 <body>
     <section>
         <h1>Register Form</h1>
-
         <form action="#" method="post">
             <div class="input-control">
                 <label>Username</label>
@@ -47,7 +46,8 @@
     </section>
 </body>
 <?php
-    if(isset($_POST['register'])){
+    if(isset($_POST['register'])) // if register button is clicked
+    {
         $user = $_POST['username'];
         $email = $_POST['email'];
         $pass = $_POST['password'];
@@ -59,26 +59,26 @@
         $esql = "SELECT * FROM pers WHERE email = '$email'";
         $eresult = mysqli_query($conn, $esql);
 
-        if(mysqli_num_rows($uresult) > 0)
+        if(mysqli_num_rows($uresult) > 0) // check if username is already taken
         {
             echo "<script>alert('Username already taken!')</script>";
         }
-        else if(mysqli_num_rows($eresult) > 0)
+        else if(mysqli_num_rows($eresult) > 0) // check if email is already taken
         {
             echo "<script>alert('Email already taken!')</script>";
         }
-        else if($pass != $pass_conf)
+        else if($pass != $pass_conf) // check if passwords not match
         {
             echo "<script>alert('Passwords do not match!')</script>";
         }
         else{
-            $pass = md5($pass);
-            $code = rand(0,99999);
+            $pass = md5($pass); //encrypt password
+            $code = rand(0,99999); //generate verification code
             include "./conf/mail_conf.php"; //send email verification code
             $_SESSION['user'] = $user;
             $_SESSION['email'] = $email;
             $_SESSION['pass'] = $pass;
-            $_SESSION['code'] = $code;
+            $_SESSION['code'] = $code; // set verification code in session
             header("Location: verify.php");
         }
         

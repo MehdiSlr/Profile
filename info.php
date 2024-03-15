@@ -1,3 +1,4 @@
+<!-- get user information such as first and last name and phone number -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +12,7 @@
     session_start();
     include "./conf/serv_conf.php";
 
-    if(!isset($_SESSION['register']))
+    if(!isset($_SESSION['register'])) // if user is not submitted email redirect to verify page
     {
         header('location: verify.php');
     }
@@ -40,17 +41,18 @@
     </section>
 </body>
 <?php
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit'])) // if submit button is clicked
+    {
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
         $phone = $_POST['phone'];
         $id = $_SESSION['register'];
 
-        $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', phone = '$phone' WHERE id = '$id'";
+        $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', phone = '$phone' WHERE id = '$id'"; // update user data in database (first name, last name, phone number)
         $result = mysqli_query($conn, $sql);
 
-        unset($_SESSION['register']);
-        $_SESSION['login'] = $id;
+        unset($_SESSION['register']); // unset user id from registersession 
+        $_SESSION['login'] = $id; // set user id in login session for profile page
         header("Location: profile.php");
     }
 ?>
