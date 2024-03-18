@@ -8,22 +8,22 @@
 
 // The name and address which should be used for the sender details.
 // The name can be anything you want, the address should be something in your own domain. It does not need to exist as a mailbox.
-define('CONTACTFORM_FROM_ADDRESS', 'noreply@mehdisite.ir');
-define('CONTACTFORM_FROM_NAME', 'Contact Form on Mehdi Site');
+define('CONTACTFORM_FROM_ADDRESS', 'mailer@example.com');
+define('CONTACTFORM_FROM_NAME', 'Contact Form on example.com');
 
 // The name and address to which the contact message should be sent.
 // These details should NOT be the same as the sender details.
-define('CONTACTFORM_TO_ADDRESS', 'mahdi.salari79.og@gmail.com');
-define('CONTACTFORM_TO_NAME', 'Mehdi Site');
+define('CONTACTFORM_TO_ADDRESS', 'you@gmail.com');
+define('CONTACTFORM_TO_NAME', 'Your Name');
 
 // The details of your SMTP service, e.g. Gmail.
 define('CONTACTFORM_SMTP_HOSTNAME', 'smtp.gmail.com');
-define('CONTACTFORM_SMTP_USERNAME', 'mahdi.salari79.og@gmail.com');
-define('CONTACTFORM_SMTP_PASSWORD', 'wuyf cgqv dpym eaxh');
+define('CONTACTFORM_SMTP_USERNAME', 'you@gmail.com');
+define('CONTACTFORM_SMTP_PASSWORD', 'hunter2');
 
 // The reCAPTCHA credentials for your site. You can get these at https://www.google.com/recaptcha/admin
-define('CONTACTFORM_RECAPTCHA_SITE_KEY', '6LeTSJMpAAAAAOJdAYT-UA5L7WR4utYSpTOmIHMD');
-define('CONTACTFORM_RECAPTCHA_SECRET_KEY', '6LeTSJMpAAAAAIRhOEK_IZAXvm-xVk1yDTvIyBLq');
+define('CONTACTFORM_RECAPTCHA_SITE_KEY', '');
+define('CONTACTFORM_RECAPTCHA_SECRET_KEY', '');
 
 /**
  * Optional Settings

@@ -22,6 +22,12 @@
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
+        if($row['fname'] == "" and $row['lname'] == "") // check if first and last name not set
+        {
+            unset($_SESSION['login']);
+            header('location: info.php'); //redirect to info page to set first and last name
+        }
+
         if($row['phone'] == "") // check if phone not set
         {
             $row['phone'] = "Not set";
