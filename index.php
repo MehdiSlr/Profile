@@ -1,5 +1,6 @@
 <!-- this page just redirect user to the right place -->
 <?php
+    session_start();
     if (isset($_SESSION['login'])) // check if user is already logged in redirect to profile
     {
         header("Location: profile.php");
@@ -10,7 +11,7 @@
     }
     else if (isset($_COOKIE['login'])) // check if user is already logged in redirect to profile
     {
-        header("Location: profile.php");
+        header("Location: login.php");
     }
     else // redirect to register
     {

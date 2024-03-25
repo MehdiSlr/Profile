@@ -146,3 +146,76 @@ input:-webkit-autofill:active {
     box-shadow: 0 0 1px #ad335e, 0 0 5px #ad335e, 0 0 10px #ad335e,
     0 0 20px #ad335e;
 }
+
+.remember {
+    display: flex;
+}
+
+.checkbox-wrapper:hover .check {
+    stroke-dashoffset: 0;
+}
+  
+.checkbox-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+}
+  
+.checkbox-wrapper .background {
+    fill: #7e2347;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+  
+.checkbox-wrapper .stroke {
+    fill: none;
+    stroke: #fff;
+    stroke-miterlimit: 10;
+    stroke-width: 2px;
+    stroke-dashoffset: 100;
+    stroke-dasharray: 100;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+  
+.checkbox-wrapper .check {
+    fill: none;
+    stroke: #fff;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 5px;
+    stroke-dashoffset: 22;
+    stroke-dasharray: 22;
+    transition: ease all 0.6s;
+    -webkit-transition: ease all 0.6s;
+}
+  
+.checkbox-wrapper input[type=checkbox] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    opacity: 0;
+    -appearance: none;
+    -webkit-appearance: none;
+}
+  
+.checkbox-wrapper input[type=checkbox]:hover {
+    cursor: pointer;
+}
+  
+.checkbox-wrapper input[type=checkbox]:checked + svg .background {
+    fill: #7e2347;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + svg .stroke {
+    stroke-dashoffset: 0;
+}
+
+.checkbox-wrapper input[type=checkbox]:checked + svg .check {
+    stroke-dashoffset: 0;
+}
