@@ -18,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('./assets/bg/mountain.jpg');
+    background: url('../assets/bg/mountain.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 100vh;
@@ -26,7 +26,7 @@ body {
 
 section {
     background: rgba(67, 67, 88, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid #ffffff66;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -141,8 +141,6 @@ input:-webkit-autofill:active {
 }
 
 .btn:hover {
-    /* background:  #892445; */
-    /* text-shadow: 0 0 1px #ffffff, 0 0 3px #ffffff, 0 0 5px #ffffff; */
     box-shadow: 0 0 1px #ad335e, 0 0 5px #ad335e, 0 0 10px #ad335e,
     0 0 20px #ad335e;
 }
