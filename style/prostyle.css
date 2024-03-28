@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --text-clr: #e0e8ef;
+    --error-clr: #b02546;
+    --success-clr: #2ecc71;
+    --btn-clr: #822646;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Nunito", sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/bg/mountain.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+section {
+    background: rgba(67, 67, 88, 0.1);
+    border: 1px solid #ffffff66;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5px;
+    overflow: hidden;
+    width: min(820px, 100%);
+}
+
+
+.line{
+    width: 100%;
+    height: 1px;
+    background: #ffffff66;
+}
+
+.header{
+    display: flex;
+    padding: 10px;
+}
+
+.header img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    border: solid 1.5px #ffffff66;
+}
+
+.header h1{
+    font-size: 1.6rem;
+    color: var(--text-clr);
+    direction:ltr;
+    margin-top: 35px;
+    margin-left: 20px;
+}
+
+.header h3{
+    color: var(--text-clr);
+    direction:ltr;
+    /* margin-top: 70px; */
+    margin-left: 20px;
+    display: flex;
+    left: 50px;
+    justify-content: flex-start;
+}
+
+.header i {
+    font-size: 20px;
+    color: var(--text-clr);
+    position: absolute;
+    top: 25px;
+    right: 28px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    align-content: center;
+    text-align: center;
+}
+
+.header i:hover {
+    background: rgba(31, 31, 37, 0.1);
+}
+
+.profile-body{
+    padding: 10px;
+    margin: 10px;
+}
+
+.profile-body h4{
+    font-weight: 200;
+    direction: ltr;
+    color: #ffffffe0;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+.profile-body h2{
+    font-size: 22px;
+    font-weight: 500;
+    direction: ltr;
+    color: #ffffffd3;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 200px;
+}
+
+.profile-body h5{
+    font-size: 20px;
+    font-weight: 500;
+    direction: ltr;
+    color: #ffffffe0;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 200px;
+    text-align: justify;
+    text-justify: inter-word;
+} 
+
+.profile-cl{
+    display: flex;
+    margin: 15px;
+}
+
+.profile-row{
+    margin: 10px;
+    display: inline;  
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    width: 30%;
+    background: #822646;
+    color: var(--text-clr);
+    font-size: 1em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s linear;
+    outline: 1px solid #af315d;
+}
+
+.logout-btn:hover {
+    box-shadow: 0 0 1px #ad335e, 0 0 5px #ad335e, 0 0 10px #ad335e,
+    0 0 20px #ad335e;
+}
