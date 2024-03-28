@@ -12,9 +12,17 @@
     session_start();
     include "./conf/serv_conf.php";
 
-    if(!isset($_SESSION['register'])) // if user is not submitted email redirect to verify page
+    if(!isset($_SESSION['login'])) // if user is not submitted email redirect to index page
     {
-        header('location: verify.php');
+        header('location: index.php');
+    }
+
+    $sql = "SELECT * FROM pers WHERE id = '$_SESSION[login]'"; //check user already set first and last name
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if(!empty($row['fname']) && !empty($row['lname']))
+    {
+        header("Location: profile.php"); //redirect to profile page
     }
 ?>
 <body>
@@ -32,9 +40,9 @@
                 <i class="uil uil-user"></i>
             </div>
             <div class="input-control">
-                <label>Phone Number</label>
-                <input type="number" placeholder="ex. 123456789" name="phone"/>
-                <i class="uil uil-phone"></i>
+                <label>Job Title</label>
+                <input type="text" placeholder="ex. Web Developer" name="job"/>
+                <i class="uil uil-bag"></i>
             </div>
             <input class="btn" type="submit" value="Submit" name="submit"/>
         </form>
@@ -45,14 +53,11 @@
     {
         $fname = $_POST['fname'];
         $lname = $_POST['lname'];
-        $phone = $_POST['phone'];
-        $id = $_SESSION['register'];
+        $job = $_POST['job'];
+        $id = $_SESSION['login'];
 
         $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', phone = '$phone' WHERE id = '$id'"; // update user data in database (first name, last name, phone number)
         $result = mysqli_query($conn, $sql);
-
-        unset($_SESSION['register']); // unset user id from registersession 
-        $_SESSION['login'] = $id; // set user id in login session for profile page
         header("Location: profile.php");
     }
 ?>

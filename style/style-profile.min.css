@@ -1,0 +1,116 @@
+body {
+  background-image: url("./../bg.JPG"); /* Replace 'https://example.com/random-background.jpg' with your desired background image URL */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin: 100px auto;
+  max-width: 800px;
+  height: 70vh;
+  position: relative;
+  padding: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* Blurry background effect */
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 1px solid #8f8f8f;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid #8f8f8f;
+  padding: 30px;
+  position: relative;
+}
+.profile .edit-btn {
+  position: absolute;
+  right: 19px;
+  top: 19px;
+  padding: 11px;
+  cursor: pointer;
+}
+.profile .edit-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+.profile .user-info {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+.profile .user-info p {
+  text-align: left;
+}
+
+.profile img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.profile h2,
+.profile p {
+  margin: 5px 0;
+}
+
+.records {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 15px;
+}
+
+.column {
+  flex: 1;
+  padding: 0 30px;
+}
+
+.record {
+  margin-bottom: 10px;
+}
+.record label {
+  font-size: 14px;
+  color: #fff;
+}
+.record p {
+  font-size: 20px;
+  color: #fff;
+  padding-left: 12px;
+}
+
+.records .logout-btn {
+  margin: 0 auto;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 30px;
+}
+footer .logout-btn {
+  padding: 8px 14px;
+  border: 1px solid #8f8f8f;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4); /* Blurry background effect */
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+footer .logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Blurry background effect */
+}/*# sourceMappingURL=style-profile.min.css.map */

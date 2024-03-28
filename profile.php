@@ -16,21 +16,26 @@
         }
 
         $id = $_SESSION['login']; // get user id from session
-        setcookie("login", $id, time() + 60*60*24*30, "/"); // set user id in cookie for 30 days to no need to login again
+        setcookie("login", $id, time() + 365*24*60*60, "/"); // set user id in cookie for 30 days to no need to login again
         
         $sql = "SELECT * FROM pers WHERE id = '$id'"; // get user data from database from user id
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_assoc($result);
 
-        if($row['phone'] == "") // check if phone not set
+        if($row['fname'] == "" and $row['lname'] == "") // check if first and last name not set
         {
-            $row['phone'] = "Not set";
+            header('location: info.php'); //redirect to info page to set first and last name
+        }
+
+        if($row['job'] == "") // check if phone not set
+        {
+            $row['job'] = "Not set";
         }
         // display user data
         echo "Welcome, " . $row['fname'] . " " . $row['lname'] . "<br>";
         echo "Username: " . $row['user'] . "<br>";
         echo "Email: " . $row['email'] . "<br>";
-        echo "Phone: " . $row['phone'] . "<br>";
+        echo "Job Title: " . $row['job'] . "<br>";
     ?>
     <a href="logout.php">Logout</a> <!-- logout link -->
 </body>

@@ -13,7 +13,7 @@
 
     if(!isset($_SESSION['code'])) // check if user not registered and verification code is not sent
     {
-        header('location: index.php'); // redirect to redirect page
+        header('location: index.php'); // redirect to index page
     }
 ?>
 <body>
@@ -43,7 +43,7 @@
             $ssql = "SELECT * FROM pers WHERE email = '$_SESSION[email]'"; // get user id from database - start
             $sresult = mysqli_query($conn, $ssql);
             $srow = mysqli_fetch_assoc($sresult); // get user id from database - end
-            $_SESSION['register'] = $srow['id']; // set user id in session if user left the "info" page
+            $_SESSION['login'] = $srow['id']; // set user id in session if user left the "info" page
             unset($_SESSION['code']); // unset verification code from session
             header("Location: info.php");
         }
@@ -54,7 +54,7 @@
     }
 ?>
 <script> // timer for resend email verification code
-    var seconds=1;
+    var seconds=59;
     var timer;
     function myFunction() {
     if(seconds < 60) { // I want it to say 1:00, not 60
