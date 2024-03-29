@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Profile Register</title>
 </head>
 <?php
@@ -15,37 +15,7 @@
     {
         header('location: profile.php');
     }
-?>
-<body>
-    <section>
-        <h1>Register Form</h1>
-        <form action="#" method="post">
-            <div class="input-control">
-                <label>Username</label>
-                <input type="text" placeholder="ex. john" name="username" required/>
-                <i class="uil uil-at"></i>
-            </div>
-            <div class="input-control">
-                <label>Email</label>
-                <input type="email" placeholder="ex. john@example.com" name="email" required/>
-                <i class="uil uil-envelope"></i>
-            </div>
-            <div class="input-control">
-                <label>Password</label>
-                <input type="password" placeholder="Password" name="password"required/>
-                <i class="uil uil-lock-alt"></i>
-            </div>
-            <div class="input-control">
-                <label>Confirm Password</label>
-                <input type="password" placeholder="Confirm Password" name="confirm_password" required/>
-                <i class="uil uil-lock-alt"></i>
-            </div>
-            <input class="btn" type="submit" value="Register" name="register"/>
-            <label class="register">Already have an account? <a href="login.php">Login</a></label>
-        </form>
-    </section>
-</body>
-<?php
+
     if(isset($_POST['register'])) // if register button is clicked
     {
         $user = $_POST['username'];
@@ -61,15 +31,15 @@
 
         if(mysqli_num_rows($uresult) > 0) // check if username is already taken
         {
-            echo "<script>alert('Username already taken!')</script>";
+            $user_error = "Username already taken!";
         }
         else if(mysqli_num_rows($eresult) > 0) // check if email is already taken
         {
-            echo "<script>alert('Email already taken!')</script>";
+            $email_error = "Email already taken!";
         }
         else if($pass != $pass_conf) // check if passwords not match
         {
-            echo "<script>alert('Passwords do not match!')</script>";
+            $pass_error = "Passwords do not match!";
         }
         else{
             $pass = md5($pass); //encrypt password
@@ -84,4 +54,37 @@
         
     }
 ?>
+<body>
+    <section>
+        <h1>Register Form</h1>
+        <form action="#" method="post">
+            <div class="input-control">
+                <label>Username</label>
+                <input type="text" placeholder="ex. john" name="username" required/>
+                <i class="uil uil-at"></i>
+                <label style="color: #a42d5c; font-weight: bold;"><?php if(isset($user_error)) echo $user_error; ?></label>
+            </div>
+            <div class="input-control">
+                <label>Email</label>
+                <input type="email" placeholder="ex. john@example.com" name="email" required/>
+                <i class="uil uil-envelope"></i>
+                <label style="color: #a42d5c; font-weight: bold;"><?php if(isset($email_error)) echo $email_error; ?></label>
+            </div>
+            <div class="input-control">
+                <label>Password</label>
+                <input type="password" placeholder="Password" name="password"required/>
+                <i class="uil uil-lock-alt"></i>
+            </div>
+            <div class="input-control">
+                <label>Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" name="confirm_password" required/>
+                <i class="uil uil-lock-alt"></i>
+                <label style="color: #a42d5c; font-weight: bold;"><?php if(isset($pass_error)) echo $pass_error; ?></label>
+            </div>
+            <input class="btn" type="submit" value="Register" name="register"/>
+            <label class="register">Already have an account? <a href="login.php">Login</a></label>
+        </form>
+    </section>
+</body>
+
 </html>

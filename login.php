@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Profile Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <?php
     session_start();
@@ -79,8 +80,9 @@
         }
         else
         {
-            echo "<script>alert('Incorrect username or password!')</script>";
+            echo "<script>Swal.fire({icon: 'error', title: 'Incorrect username or password!'});</script>";
         }
     }
 ?>
+
 </html>

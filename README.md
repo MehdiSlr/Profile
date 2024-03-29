@@ -21,6 +21,8 @@ Profile provides a robust authentication system for web applications built using
 - Secure password hashing
 - Database storage of user information
 - Login functionality with session management
+- Select image for profile picture
+- Editable user profile
 
 ## Installation
 
@@ -29,7 +31,7 @@ To install Profile, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/profile.git
+   git clone https://github.com/MehdiSlr/profile.git
    ```
 
 2. Set up your environment by configuring the database connection details in the provided configuration file (`conf/serv_conf.php`).
@@ -53,6 +55,8 @@ To use Profile in your web application, follow these guidelines:
 3. Ensure that your application's environment variables are correctly configured for database connection and email service.
 
 4. Test the registration, login, and email verification functionalities thoroughly before deploying to production.
+
+5. Provide test user data to the `pros.sql` file for testing purposes. (Email: qDjy5@example.com and password: 123)
 
 ## Contributing
 

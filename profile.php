@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/prostyle.css">
 </head>
 <body>
-    <!-- <?php
+    <?php
         session_start();
         include "./conf/serv_conf.php";
 
@@ -29,24 +29,41 @@
             header('location: info.php'); //redirect to info page to set first and last name
         }
 
-        if($row['job'] == "") // check if phone not set
+        if($row['job'] == "") // check if job not set
         {
             $row['job'] = "Not set";
         }
-        // display user data
-        echo "Welcome, " . $row['fname'] . " " . $row['lname'] . "<br>";
-        echo "Username: " . $row['user'] . "<br>"; 
-        echo "Email: " . $row['email'] . "<br>";
-        echo "Job Title: " . $row['job'] . "<br>";
-    ?> -->
+        if($row['bio'] == "") // check if bio not set
+        {
+            $row['bio'] = "Not set";
+        }
+        if($row['pic_adrs'] == "") // check if profile picture not set
+        {
+            $row['pic_adrs'] = "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png";
+        }
+        if($row['birth'] == "") // check if birth date not set
+        {
+            $row['birth'] = "Not set";
+        }
+        $fname = $row['fname'];
+        $lname = $row['lname'];
+        $user = $row['user'];
+        $email = $row['email'];
+        $job = $row['job'];
+        $bio = $row['bio'];
+        $pic_adrs = $row['pic_adrs'];
+        $birth = $row['birth'];
+
+        
+    ?>
     <section>
         <form>
             <div>
                 <div class="header">
-                    <img src="./assets/pics/pro.jpg">
+                    <img src="<?php echo $pic_adrs; ?>">
                     <div>
-                        <h1> Negar Ebrahimi</h1>
-                        <h3>UI/UX Designer</h3>
+                        <h1><?php echo $fname." ".$lname; ?></h1>
+                        <h3><?php echo $job; ?></h3>
                     </div>
                     <a href="edit.php">
                         <i class="uil uil-pen"></i>
@@ -58,32 +75,32 @@
                         <div class="profile-row"> 
                             <div class="profile-body">
                                 <h4>Username</h4>
-                                <h2>Negarebr</h2>
+                                <h2><?php echo $user; ?></h2>
                             </div>
                             <div class="profile-body">
                                 <h4>Job Title</h4>
-                                <h2>UI/UX Designer</h2>
+                                <h2><?php echo $job; ?></h2>
                             </div>
                             <div class="profile-body">
                                 <h4>Birth Date</h4>
-                                <h2>September 2, 2002</h2>
+                                <h2><?php echo $birth; ?></h2>
                             </div>
                         </div>
                         <div class="profile-row">
                             <div class="profile-body">
                                 <h4>E-mail</h4>
-                                <h2>Negarebhimi11@gmail.com</h2>
+                                <h2><?php echo $email; ?></h2>
                             </div>
 
                             <div class="profile-body">
                                 <h4>Biography</h4>
-                                <h5>Hello. My name is negar and this ui that you can see now is my job</h5>
+                                <h5><?php echo $bio; ?></h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="btns">
-                <input class="logout-btn" type="button" value="Logout" onclick="#">
+                <input class="logout-btn" type="button" value="Logout" onclick="location.href='logout.php'">
                 </div>
             </div>
         </form>

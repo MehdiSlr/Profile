@@ -45,8 +45,7 @@ CREATE TABLE `pers` (
 --
 
 INSERT INTO `pers` (`id`, `fname`, `lname`, `user`, `psw`, `email`, `job`, `bio`, `pic_adrs`, `birth`) VALUES
-(5, 'Mehdi', 'Salari', 'Metii', '6a182a16e66268d7ce85fcfe945df787', 'mahdi.salari79@yahoo.com', '', '', '', '');
-
+(1, 'John', 'Smith', 'john', '202cb962ac59075b964b07152d234b70', 'qDjy5@example.com', 'Web Developer', 'Hello World', 'https://randomuser.me/api/portraits/men/1.jpg', '1990-01-01'),
 --
 -- Indexes for dumped tables
 --
