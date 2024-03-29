@@ -224,3 +224,47 @@ input:-webkit-autofill:active {
     right: 10px;
     color: #e0e8efb8;
 }
+
+@media screen and (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header img {
+        margin: 0; /* Remove margin */
+    }
+
+    .header h1, .header h3 {
+        margin: 10px 0; /* Adjust margin */
+    }
+
+    .header i {
+        padding: 12px;
+    }
+
+    .profile-cl {
+        flex-direction: column;
+    }
+
+    .profile-row {
+        margin: 0; /* Remove margin */
+    }
+
+    .profile-body {
+        margin: 10px 0; /* Adjust margin */
+    }
+
+    .logout-btn {
+        width: 50%; /* Adjust button width */
+    }
+
+    section {
+        margin: 10px 0; /* Adjust margin */
+
+        padding: 0 10px; /* Adjust padding */
+
+        width: 95%; /* Adjust width */
+    }
+}

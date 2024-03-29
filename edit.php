@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Edit Profile</title>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="stylesheet" href="style/prostyle.css">
 </head>
@@ -50,7 +50,7 @@
                     <img src="<?php echo $pic_adrs; ?>">
                     <div>
                         <h1 style="font-size: 15px;">
-                        Select your profile picture:<input style="width: 200px; margin-bottom: 10px; margin-left: 20px" type="file" accept="image/*" name="pic" id="pic"><br>
+                        <strong style="margin-right: 25px;">Select your profile picture</strong><input style="width: 200px; margin-bottom: 10px; " type="file" accept="image/*" name="pic" id="pic"><br>
                         <input style="width: 200px;" type="text" placeholder="ex. John" name="fname" value="<?php echo $fname; ?>" required/>
                         <input style="width: 200px;" type="text" placeholder="ex. Smith" name="lname" value="<?php echo $lname; ?>" required/>
                         </h1>

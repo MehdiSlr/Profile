@@ -56,7 +56,7 @@
         $job = $_POST['job'];
         $id = $_SESSION['login'];
 
-        $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', phone = '$phone' WHERE id = '$id'"; // update user data in database (first name, last name, phone number)
+        $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', job = '$job' WHERE id = '$id'"; // update user data in database (first name, last name, phone number)
         $result = mysqli_query($conn, $sql);
         header("Location: profile.php");
     }
