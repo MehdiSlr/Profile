@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="stylesheet" href="style/style.css">
-    <title>Profile Login</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Profile Login</title>
 </head>
 <?php
     session_start();
@@ -28,6 +28,36 @@
                 header("Location: profile.php");
             }
     }
+
+    if(isset($_POST['login'])){
+        $user = $_POST['username'];
+        $pass = $_POST['password'];
+        $pass = md5($pass);
+        $sql = "SELECT * FROM pers WHERE user = '$user' OR email = '$user'";
+        $result = mysqli_query($conn, $sql);
+
+        if(mysqli_num_rows($result) > 0) //check username and password
+        {
+            $row = mysqli_fetch_assoc($result);
+            if($row['psw'] == $pass)
+            {
+                $_SESSION['login'] = $row['id'];
+                if(isset($_POST['remember'])){
+                    setcookie("user", $user, time() + (14 * 24 * 60 * 60), "/");
+                    setcookie("pass", $pass, time() + (14 * 24 * 60 * 60), "/");
+                }
+                header("Location: profile.php");
+            }
+            else
+            {
+                $error = "<script>Swal.fire({icon: 'error', title: 'Incorrect username or password!'});</script>";
+            }
+        }
+        else
+        {
+            echo "<script>Swal.fire({icon: 'error', title: 'Incorrect username or password!'});</script>";
+        }
+    }
 ?>
 <body>
     <section>
@@ -35,14 +65,16 @@
 
         <form action="#" method="post">
             <div class="input-control">
-                <label>Username</label>
-                <input type="text" placeholder="Email or Username" name="username" required/>
+                <label>Email or Username</label>
+                <input type="text" placeholder="Email or Username" name="username" required autofocus/>
                 <i class="uil uil-at"></i>
             </div>
             <div class="input-control">
                 <label>Password</label>
                 <input type="password" placeholder="Password" name="password" required/>
                 <i class="uil uil-lock-alt"></i>
+                <?php if(isset($error)){ echo $error; } ?>
+                <label><a href="forgot.php">Forgot Password?</a></label>
             </div>
             <div class="remember">
                 <label class="forgot">Save your credentials?</label>
@@ -60,29 +92,4 @@
         </form>
     </section>
 </body>
-<?php
-    if(isset($_POST['login'])){
-        $user = $_POST['username'];
-        $pass = $_POST['password'];
-        $pass = md5($pass);
-        $sql = "SELECT * FROM pers WHERE user = '$user' AND psw = '$pass'";
-        $result = mysqli_query($conn, $sql);
-
-        if(mysqli_num_rows($result) > 0) //check username and password
-        {
-            $row = mysqli_fetch_assoc($result);
-            $_SESSION['login'] = $row['id'];
-            if(isset($_POST['remember'])){
-                setcookie("user", $user, time() + (14 * 24 * 60 * 60), "/");
-                setcookie("pass", $pass, time() + (14 * 24 * 60 * 60), "/");
-            }
-            header("Location: profile.php");
-        }
-        else
-        {
-            echo "<script>Swal.fire({icon: 'error', title: 'Incorrect username or password!'});</script>";
-        }
-    }
-?>
-
 </html>

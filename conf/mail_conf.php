@@ -1,3 +1,4 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <?php
 
     require_once __DIR__.'/mail/vendor/autoload.php';
@@ -35,9 +36,11 @@
     EOT;
 
         $mail->send();
-        echo '<script>alert("Message has been sent")</script>'; // Message has been sent';
-    } 
-    catch (Exception $e) {
-        echo "<script>alert('Message could not be sent. Mailer Error: {$mail->ErrorInfo}')</script>"; // Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        $error = "<script>Swal.fire({icon: 'success', title: 'Message has been sent'})</script>"; // Message has been sent
     }
+    catch (Exception $e) {
+        $error = "<script>alert('Message could not be sent. Mailer Error: {$mail->ErrorInfo}')</script>"; // Message could not be sent. Mailer Error: {$mail->ErrorInfo}
+    }
+
+    if(isset($error)){ echo $error; }
 ?>

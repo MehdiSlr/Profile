@@ -6,6 +6,7 @@
     <title>Edit Profile</title>
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="stylesheet" href="style/prostyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <?php
@@ -41,7 +42,66 @@
         $bio = $row['bio'];
         $pic_adrs = $row['pic_adrs'];
         $birth = $row['birth'];
-        
+
+        if(isset($_POST['save']))
+        {
+            $id = $row['id'];
+            $fname = $_POST['fname'];
+            $lname = $_POST['lname'];
+            $user = $_POST['user'];
+            $email = $_POST['email'];
+            $job = $_POST['job'];
+            $bio = $_POST['bio'];
+            $birth = $_POST['birth'];
+
+
+            // upload profile picture
+
+                // check if file uploaded
+            if($_FILES['pic']['error'] != 4)
+            {
+                // get file name
+                $filename = $_FILES['pic']['name'];
+
+                // get file extension
+                $extension = explode('.', $filename);
+                
+                //change file name to user id
+                $filename = $id.'.'.$extension[1];
+                
+                // get file path
+                $path = $_FILES['pic']['tmp_name'];
+
+                //get file size
+                $size = $_FILES['pic']['size'];
+
+                //if file size under 5mb
+                if($size < 5000000)
+                {                    
+                    // upload file
+                    $pic_adrs = './assets/pics/'.$filename;
+                    move_uploaded_file($path, $pic_adrs);
+                }
+                else
+                {
+                    // if file size over 5mb
+                    $error = "<script>Swal.fire({icon: 'error', title: 'File size over 5mb!'});</script>";
+                }
+            }
+            else
+            {
+                $pic_adrs = $row['pic_adrs'];
+            }
+            // update user data
+            $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', user = '$user', email = '$email', job = '$job', bio = '$bio', birth = '$birth', pic_adrs = '$pic_adrs' WHERE id = '$id'";
+            $result = mysqli_query($conn, $sql);
+            if(!$result)
+            {
+                $error = "<script>Swal.fire({icon: 'error', title: 'Error".$conn->error."'});</script>";
+            }
+            header('location: profile.php');
+        }
+        if(isset($error)){ echo $error; }
     ?>
     <section>
         <form method="post" enctype="multipart/form-data" action="#">
@@ -101,65 +161,5 @@
             </div>
         </form>
     </section>
-    <?php
-        if(isset($_POST['save']))
-        {
-            $id = $row['id'];
-            $fname = $_POST['fname'];
-            $lname = $_POST['lname'];
-            $user = $_POST['user'];
-            $email = $_POST['email'];
-            $job = $_POST['job'];
-            $bio = $_POST['bio'];
-            $birth = $_POST['birth'];
-
-
-            // upload profile picture
-
-                // check if file uploaded
-            if($_FILES['pic']['error'] != 4)
-            {
-                // get file name
-                $filename = $_FILES['pic']['name'];
-
-                // get file extension
-                $extension = explode('.', $filename);
-                
-                //change file name to user id
-                $filename = $id.'.'.$extension[1];
-                
-                // get file path
-                $path = $_FILES['pic']['tmp_name'];
-
-                //get file size
-                $size = $_FILES['pic']['size'];
-
-                //if file size under 5mb
-                if($size < 5000000)
-                {                    
-                    // upload file
-                    $pic_adrs = './assets/pics/'.$filename;
-                    move_uploaded_file($path, $pic_adrs);
-                }
-                else
-                {
-                    // if file size over 5mb
-                    echo "<script>Swal.fire({icon: 'error', title: 'File size over 5mb!'});</script>";
-                }
-            }
-            else
-            {
-                $pic_adrs = $row['pic_adrs'];
-            }
-            // update user data
-            $sql = "UPDATE pers SET fname = '$fname', lname = '$lname', user = '$user', email = '$email', job = '$job', bio = '$bio', birth = '$birth', pic_adrs = '$pic_adrs' WHERE id = '$id'";
-            $result = mysqli_query($conn, $sql);
-            if(!$result)
-            {
-                echo "<script>Swal.fire({icon: 'error', title: 'Error".$conn->error."'});</script>";
-            }
-            header('location: profile.php');
-        }
-    ?>
 </body>
 </html>

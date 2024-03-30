@@ -19,6 +19,7 @@ Profile provides a robust authentication system for web applications built using
 
 - User registration with email verification
 - Secure password hashing
+- Reset password
 - Database storage of user information
 - Login functionality with session management
 - Select image for profile picture
