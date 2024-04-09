@@ -7,9 +7,9 @@
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = '+00:00';
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -45,7 +45,7 @@ CREATE TABLE `pers` (
 --
 
 INSERT INTO `pers` (`id`, `fname`, `lname`, `user`, `psw`, `email`, `job`, `bio`, `pic_adrs`, `birth`) VALUES
-(1, 'John', 'Smith', 'john', '202cb962ac59075b964b07152d234b70', 'qDjy5@example.com', 'Web Developer', 'Hello World', 'https://randomuser.me/api/portraits/men/1.jpg', '1990-01-01'),
+(1, 'John', 'Smith', 'john', '202cb962ac59075b964b07152d234b70', 'qDjy5@example.com', 'Web Developer', 'Hello World', 'https://randomuser.me/api/portraits/men/1.jpg', '1990-01-01');
 --
 -- Indexes for dumped tables
 --
