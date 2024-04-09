@@ -1,6 +1,6 @@
 <?php
 
-require_once "conf/serv_conf.php";
+require_once __DIR__."/conf/serv_conf.php";
 
 if (isset($conn) && $conn instanceof mysqli) {
     $sql = file_get_contents(__DIR__.'/pros.sql');
