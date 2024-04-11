@@ -41,7 +41,11 @@ To install Profile, follow these steps:
 
 4. Start your local server and navigate to the project directory. Use any web server that supports PHP like Apache(You can use XAMPP or WAMP).
 
-5. Import the `pros.sql` file into your database.
+5. Run the below command in your terminal.
+
+   ```base
+   php .\install.php
+   ```
 
 6. Configure your SMTP credentials in `config.example.php` at `conf/mail/config.example.php` and rename it to `config.php`.
 
